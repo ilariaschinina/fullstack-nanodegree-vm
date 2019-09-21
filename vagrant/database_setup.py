@@ -26,8 +26,8 @@ class MenuItem(Base):
 	#serialize function to be able to send JSON objects in a serializable format
     @property
     def serialize(self):
-       
-       return {
+    #Returns object data in easily serializeable format
+        return {
            'name'         : self.name,
            'description'         : self.description,
            'id'         : self.id,
