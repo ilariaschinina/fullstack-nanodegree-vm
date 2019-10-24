@@ -1,0 +1,30 @@
+
+
+li {
+  list-style-type: none;
+}
+
+.top-banner {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button:link, .button:visited  {
+  background-color: #009688;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  }
+
+.button:hover, .button:active {
+  background-color: #18a99b;
+  }
+
+ul.hover {
+    color: #4c4c4c;
+   }

@@ -1,0 +1,26 @@
+<!-- Header -->
+{% include 'snippets/header.html' %}
+
+<body>
+
+    <!-- Sidebar -->
+    {% include 'snippets/sidebar.html' %}
+
+    <!-- Page Content -->
+    <div style="margin-left:25%">
+
+        {% include 'snippets/topbanner.html' %}
+
+        <div class="w3-container">
+        <h2>{{item.title}}</h2>
+        <h3>{{item.author}}</h3>
+        <p class="description">
+            {{item.description}}
+        </p>
+        <a class="button" href="#" target="_blank">Edit</a>
+        <a class="button" href="#" target="_blank">Delete</a>
+        </div>
+
+    </div>
+</body>
+</html>

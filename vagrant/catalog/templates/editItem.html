@@ -1,0 +1,35 @@
+<!-- Header -->
+{% include 'snippets/header.html' %}
+
+<body>
+
+    <!-- Sidebar -->
+    {% include 'snippets/sidebar.html' %}
+
+    <!-- Page Content -->
+    <div style="margin-left:25%">
+
+        {% include 'snippets/topbanner.html' %}
+
+        <div class="w3-container">
+            <h2>Edit {{item.title}}</h2>
+
+
+            <form action= "#" method="POST">
+
+                <p>Edit title:</p>
+                <input type="text" size="30" name="name" placeholder="{{item.title}}">
+
+                <p>Edit author:</p>
+                <input type="text" size="30" name="name" placeholder="{{item.author}}">
+
+                <p>Edit description:</p>
+                <input type="text" size="60" name="description" placeholder="{{item.description}}"><br><br>
+                <form action="#" method='post'>
+                    <a class="button" href="#" target="_blank">Edit</a>
+                    <a class="button" href="#" target="_blank">Cancel</a>
+                </form>
+            </form>
+    </div>
+</body>
+</html>

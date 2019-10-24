@@ -1,0 +1,7 @@
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+        <h3 class="w3-bar-item">Categories</h3>
+            {% for category in categories %}
+                <a href="/category/{{category.id}}/list" class="w3-bar-item w3-button"> {{ category.name }} </a>
+            {% endfor %}
+        </div>

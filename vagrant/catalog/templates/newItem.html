@@ -1,0 +1,33 @@
+<!-- Header -->
+{% include 'snippets/header.html' %}
+
+<body>
+
+    <!-- Sidebar -->
+    {% include 'snippets/sidebar.html' %}
+
+    <!-- Page Content -->
+    <div style="margin-left:25%">
+
+        {% include 'snippets/topbanner.html' %}
+
+        <div class="w3-container">
+            <h2>Add a new book in the {{category.name}} section</h2>
+            <form action= "#" method="POST">
+                <p>Title:</p>
+                <input type="text" size="30" name="name" placeholder="Book title">
+
+                <p>Author:</p>
+                <input type="text" size="30" name="name" placeholder="Author name">
+
+                <p>Description:</p>
+                <input type="text" size="60" name="description" placeholder="Description of the book">
+                <input type="submit" value="Create">
+            </form>
+            <a href= "#">Cancel</a>
+
+    </div>
+</body>
+</html>
+
+
