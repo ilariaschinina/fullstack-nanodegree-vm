@@ -12,7 +12,7 @@ a {
   text-decoration: none;
 }
 
-.button:link, .button:visited  {
+.button, .button:visited  {
   background-color: #009688;
   color: white;
   padding: 14px 25px;
@@ -25,6 +25,10 @@ a {
   background-color: #18a99b;
   }
 
-ul.hover {
-    color: #4c4c4c;
+.main_list:hover {
+    color: teal;
    }
+
+.flash {
+  color: red;
+}

@@ -1,26 +1,27 @@
 import os
 import sys
 from sqlalchemy import Column, ForeignKey, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
-from sqlalchemy import create_engine
+# from sqlalchemy.ext.declarative import declarative_base
+# from sqlalchemy.orm import relationship
+# from sqlalchemy import create_engine
 
-Base = declarative_base()
+# Base = declarative_base()
+from application import db
 
-class User(Base):
+class User(db.Model):
     __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
     email = Column(String(250), nullable=False)
     token = Column(String(500), nullable=True)
 
-class Category(Base):
+class Category(db.Model):
     __tablename__ = 'category'
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
 
-class Item(Base):
+class Item(db.Model):
     __tablename__ = 'item'
     id = Column(Integer, primary_key = True)
     title = Column(String(80), nullable = False)
@@ -39,6 +40,6 @@ class Item(Base):
            'id'         : self.id,
        }
 
-engine = create_engine('sqlite:///catalogapp.db')
+# engine = create_engine('sqlite:///catalogapp.db')
 
-Base.metadata.create_all(engine)
+# Base.metadata.create_all(engine)

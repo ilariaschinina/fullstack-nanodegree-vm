@@ -1,5 +1,5 @@
 <!-- Header -->
-{% include 'snippets/header.html' %}
+{% include 'snippets/head.html' %}
 
 <body>
 
@@ -12,13 +12,23 @@
         {% include 'snippets/topbanner.html' %}
 
         <div class="w3-container">
+            <div class = 'flash'>
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <em> {{ message }} </em>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </div>
         <h2>{{item.title}}</h2>
         <h3>{{item.author}}</h3>
         <p class="description">
             {{item.description}}
         </p>
-        <a class="button" href="#" target="_blank">Edit</a>
-        <a class="button" href="#" target="_blank">Delete</a>
+        <a class="button" href="/category/{{category.id}}/list/{{item.id}}/edit">Edit</a>
+        <a class="button" href="/category/{{category.id}}/list/{{item.id}}/delete">Delete</a>
+        <a class="button" href="/category/{{category.id}}/list">Back</a>
         </div>
 
     </div>

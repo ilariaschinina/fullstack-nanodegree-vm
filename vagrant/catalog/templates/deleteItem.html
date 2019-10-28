@@ -1,5 +1,5 @@
 <!-- Header -->
-{% include 'snippets/header.html' %}
+{% include 'snippets/head.html' %}
 
 <body>
 
@@ -10,12 +10,13 @@
     <div style="margin-left:25%">
 
         {% include 'snippets/topbanner.html' %}
+
         <div class="w3-container">
             <h2>Delete {{item.title}}</h2>
             <p>Are you sure you want delete {{item.title}}?</p>
             <form action="#" method='post'>
-                <a class="button" href="#" target="_blank">Delete</a>
-                <a class="button" href="#" target="_blank">Cancel</a>
+                <input class="button" type="submit" value="Delete">
+                <a class="button" href="/category/{{category.id}}/list/{{item.id}}">Back</a>
             </form>
             </div>
     </div>

@@ -1,5 +1,5 @@
 <!-- Header -->
-{% include 'snippets/header.html' %}
+{% include 'snippets/head.html' %}
 
 <body>
 
@@ -15,16 +15,16 @@
             <h2>Add a new book in the {{category.name}} section</h2>
             <form action= "#" method="POST">
                 <p>Title:</p>
-                <input type="text" size="30" name="name" placeholder="Book title">
+                <input type="text" size="30" name="title" placeholder="Book title">
 
                 <p>Author:</p>
-                <input type="text" size="30" name="name" placeholder="Author name">
+                <input type="text" size="30" name="author" placeholder="Author name">
 
                 <p>Description:</p>
-                <input type="text" size="60" name="description" placeholder="Description of the book">
-                <input type="submit" value="Create">
+                <input type="text" size="60" name="description" placeholder="Description of the book"><br><br>
+                <input class="button" type="submit" value="Create">
+                <a class="button" href="/category/{{category.id}}/list">Back</a>
             </form>
-            <a href= "#">Cancel</a>
 
     </div>
 </body>

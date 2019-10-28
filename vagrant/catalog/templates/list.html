@@ -1,5 +1,5 @@
 <!-- Header -->
-{% include 'snippets/header.html' %}
+{% include 'snippets/head.html' %}
 
 <body>
 
@@ -13,12 +13,26 @@
 
         <div class="w3-container">
             <h2>{{category.name}}</h2>
+
+            <div class = 'flash'>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <em> {{ message }} </em>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+
+
+
+
             <ul>
                 {% for item in items %}
-                    <li><a href="/category/{{category.id}}/list/{{item.id}}"> {{ item.title }} </a></li>
+                    <li class="main_list"><a href="/category/{{category.id}}/list/{{item.id}}"> {{ item.title }} </a></li>
                 {% endfor %}
             </ul>
-            <a class="button" href="#" target="_blank">Add new item</a>
+            <a class="button" href="/category/{{category.id}}/list/new_item">Add new item</a>
         </div>
     </div>
 </body>

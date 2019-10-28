@@ -1,5 +1,5 @@
 <!-- Header -->
-{% include 'snippets/header.html' %}
+{% include 'snippets/head.html' %}
 
 <body>
 
@@ -18,17 +18,15 @@
             <form action= "#" method="POST">
 
                 <p>Edit title:</p>
-                <input type="text" size="30" name="name" placeholder="{{item.title}}">
+                <input type="text" size="30" name="title" placeholder="{{item.title}}">
 
                 <p>Edit author:</p>
-                <input type="text" size="30" name="name" placeholder="{{item.author}}">
+                <input type="text" size="30" name="author" placeholder="{{item.author}}">
 
                 <p>Edit description:</p>
                 <input type="text" size="60" name="description" placeholder="{{item.description}}"><br><br>
-                <form action="#" method='post'>
-                    <a class="button" href="#" target="_blank">Edit</a>
-                    <a class="button" href="#" target="_blank">Cancel</a>
-                </form>
+                <input class="button" type="submit" value="Edit">
+                <a class="button" href="/category/{{category.id}}/list/{{item.id}}">Cancel</a>
             </form>
     </div>
 </body>
