@@ -1,0 +1,1 @@
+before running application.py copy-paste `export OAUTHLIB_INSECURE_TRANSPORT=1`

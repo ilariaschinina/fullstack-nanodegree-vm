@@ -1,1 +1,4 @@
 vagrant/.vscode/
+vagrant/catalog/__pycache__/
+vagrant/catalog/catalogapp.db
+vagrant/catalog/client_secret.json

@@ -26,11 +26,15 @@
         <p class="description">
             {{item.description}}
         </p>
-        <a class="button" href="/category/{{category.id}}/list/{{item.id}}/edit">Edit</a>
-        <a class="button" href="/category/{{category.id}}/list/{{item.id}}/delete">Delete</a>
+        {% if is_owner %}
+            <a class="button" href="/category/{{category.id}}/list/{{item.id}}/edit">Edit</a>
+            <a class="button" href="/category/{{category.id}}/list/{{item.id}}/delete">Delete</a>
+        {% endif %}
         <a class="button" href="/category/{{category.id}}/list">Back</a>
         </div>
 
     </div>
 </body>
 </html>
+
+

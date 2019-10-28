@@ -32,7 +32,9 @@
                     <li class="main_list"><a href="/category/{{category.id}}/list/{{item.id}}"> {{ item.title }} </a></li>
                 {% endfor %}
             </ul>
-            <a class="button" href="/category/{{category.id}}/list/new_item">Add new item</a>
+            {% if is_owner %}
+                <a class="button" href="/category/{{category.id}}/list/new_item">Add new item</a>
+            {% endif %}
         </div>
     </div>
 </body>
