@@ -1,1 +1,38 @@
-before running application.py copy-paste `export OAUTHLIB_INSECURE_TRANSPORT=1`
+# Catalog App for a small coding book collection
+This app has been built as project for the Udacity Full Stack Web Developer Nanodegree program.
+It is a small catalog app that organizes books for learning programming languages.
+
+Main features:
+* The basic CRUD functionalities have been implemented and only the authorized users can have access to them
+* The app supports oauth login with Google
+* The project implements a JSON endpoint that serves the same information as displayed in the HTML endpoints for an arbitrary item in the catalog
+
+## Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Prerequisites: VM](#Prerequisites:-VM)
+- [Prerequisites: the data](#Prerequisites:-the-data)
+- [Running](#running)
+
+
+### Prerequisites: VM
+
+* Install [VirtualBox](https://www.virtualbox.org/wiki/Download_Old_Builds_5_1)
+* Install [Vagrant](https://www.vagrantup.com/downloads.html)
+	* Run `vagrant --version` to be sure that Vagrant is successfully installed)
+* The VM configuration is included in this repository
+* Start the virtual machine from your terminal while being inside the **vagrant** subdirectory by running:
+	* `vagrant up`
+	* `vagrant ssh`
+* Now you are logged, change directory with `cd /vagrant/catalog`. Files in the VM's `/vagrant` directory are shared with the vagrant folder on your computer
+
+### Prerequisites: the data
+
+* Run `python3 db_setup.py`to generate the database
+* Run  `python3 db_data.py` to populate the database
+
+### Running
+
+* Before launching the main script, type in your terminal `export OAUTHLIB_INSECURE_TRANSPORT=1` (this is to avoid using https with Oauthlib)
+* Run now `python3 application.py`
+* Open your browser and go to `http://localhost:5000`

@@ -29,6 +29,9 @@
         {% if is_owner %}
             <a class="button" href="/category/{{category.id}}/list/{{item.id}}/edit">Edit</a>
             <a class="button" href="/category/{{category.id}}/list/{{item.id}}/delete">Delete</a>
+        {% else %}
+            <a class="button" href="/category/{{category.id}}/list/{{item.id}}/edit" disabled>Edit</a>
+            <a class="button" href="/category/{{category.id}}/list/{{item.id}}/delete" disabled>Delete</a>
         {% endif %}
         <a class="button" href="/category/{{category.id}}/list">Back</a>
         </div>

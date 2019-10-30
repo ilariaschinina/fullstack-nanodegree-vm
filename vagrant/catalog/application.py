@@ -42,12 +42,14 @@ class User(db.Model):
     email = Column(String(250), nullable = False, unique = True, index = True)
     picture = Column(String(250), nullable = False)
 
+
 class Category(db.Model):
     __tablename__ = 'category'
     id = Column(Integer, primary_key = True)
     name = Column(String(250), nullable = False)
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
+
 
 class Item(db.Model):
     __tablename__ = 'item'
@@ -82,20 +84,6 @@ def home():
     is_logged_in = 'user_id' in login_session
     return render_template("home.html", categories = categories, items = items, is_logged_in = is_logged_in)
 
-# @app.route("/category/new")
-# def newCategory():
-#     return "This is to create a new category"
-#     #auth required
-
-# @app.route("/category/<int:category_id>/edit")
-# def editCategory(category_id):
-#     return "This is to update this category"
-#      #auth required
-
-# @app.route("/category/<int:category_id>/delete")
-# def deleteCategory(category_id):
-#     return "This is to delete this category"
-#      #auth required
 
 @app.route("/login")
 def showLogin():
@@ -106,15 +94,6 @@ def showLogin():
 
     return redirect(authorization_url)
 
-@app.route("/category/<int:category_id>/list")
-def showCategory(category_id):
-    categories = session.query(Category).all()
-    category = session.query(Category).filter_by(id = category_id).one()
-    items = session.query(Item).filter_by(category_id = category_id).all()
-    is_logged_in = 'user_id' in login_session
-    is_owner = is_logged_in and login_session['user_id'] == category.user_id
-
-    return render_template("list.html", categories = categories, category = category, items = items, is_owner = is_owner, is_logged_in = is_logged_in)
 
 @app.route('/oauth2callback', methods = ['GET'])
 def gconnect():
@@ -155,6 +134,17 @@ def gconnect():
 def gdisconnect():
     del login_session['user_id']
     return redirect("/")
+
+
+@app.route("/category/<int:category_id>/list")
+def showCategory(category_id):
+    categories = session.query(Category).all()
+    category = session.query(Category).filter_by(id = category_id).one()
+    items = session.query(Item).filter_by(category_id = category_id).all()
+    is_logged_in = 'user_id' in login_session
+    is_owner = is_logged_in and login_session['user_id'] == category.user_id
+
+    return render_template("list.html", categories = categories, category = category, items = items, is_owner = is_owner, is_logged_in = is_logged_in)
 
 
 @app.route("/category/<int:category_id>/list/new_item", methods = ['GET','POST'])
@@ -234,6 +224,7 @@ def deleteListItem(category_id, item_id):
         return render_template("deleteItem.html", categories = categories, category = category, item = item, is_logged_in = is_logged_in)
 
 
+
 @app.route("/category/<int:category_id>/list/<int:item_id>")
 def showListItems(category_id, item_id):
     categories = session.query(Category).all()
@@ -244,6 +235,24 @@ def showListItems(category_id, item_id):
     return render_template("item.html", categories = categories, category = category, item = item, is_owner = is_owner, is_logged_in = is_logged_in)
 
 
+# JSON APIs to view the list of items in one category, a single item, a categories
+@app.route('/category/<int:category_id>/list/JSON')
+def listJSON(category_id, item_id):
+    category = session.query(Category).filter_by(id = category_id).one()
+    items = session.query(Item).filter_by(category_id = category_id).all()
+    return jsonify(items=[i.serialize for i in items])
+
+
+@app.route('/category/<int:category_id>/list/<int:item_id>/JSON')
+def itemJSON(category_id, item_id):
+    item = session.query(Item).filter_by(id = item_id).one()
+    return jsonify(item = item.serialize)
+
+
+@app.route('/JSON')
+def categoriesJSON():
+    categories = session.query(Category).all()
+    return jsonify(categoriess=[i.serialize for i in categories])
 
 
 if __name__ == "__main__":
