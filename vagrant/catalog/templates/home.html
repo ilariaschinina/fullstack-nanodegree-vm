@@ -12,7 +12,7 @@
         {% include 'snippets/topbanner.html' %}
 
         <div class="w3-container">
-        <h2>Latest Items</h2>
+        <h2>Latest Items Added</h2>
         <p><ul>{% for item in items %}
             <li class="main_list"><a class="item-list" href="/category/{{item.category_id}}/list/{{item.id}}"> {{ item.title }} </a><!-- add category --></li>
         {% endfor %}</ul></p>

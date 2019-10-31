@@ -19,11 +19,15 @@ a {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  }
+}
 
 .button:hover, .button:active {
   background-color: #18a99b;
   }
+
+.disabled-button {
+  background-color: grey;
+}
 
 .main_list:hover {
     color: teal;

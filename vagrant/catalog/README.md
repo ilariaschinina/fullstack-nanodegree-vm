@@ -4,8 +4,11 @@ It is a small catalog app that organizes books for learning programming language
 
 Main features:
 * The basic CRUD functionalities have been implemented and only the authorized users can have access to them
-* The app supports oauth login with Google
-* The project implements a JSON endpoint that serves the same information as displayed in the HTML endpoints for an arbitrary item in the catalog
+* The app supports OAuth2 login with Google
+* The project implements JSON endpoints (without security) that serve the same information as displayed in the HTML endpoints:
+    * for arbitrary item in the catalog
+    * for all categories
+    * for a single category
 
 ## Table of Contents
 
@@ -30,9 +33,10 @@ Main features:
 
 * Run `python3 db_setup.py`to generate the database
 * Run  `python3 db_data.py` to populate the database
+* Create a Google credential file (name it `client_secret.json`) that allows Google login and place it in catalog folder
 
 ### Running
 
-* Before launching the main script, type in your terminal `export OAUTHLIB_INSECURE_TRANSPORT=1` (this is to avoid using https with Oauthlib)
+* Before launching the main script, type in your terminal `export OAUTHLIB_INSECURE_TRANSPORT=1` (this is to avoid having to use https with Oauthlib)
 * Run now `python3 application.py`
 * Open your browser and go to `http://localhost:5000`
