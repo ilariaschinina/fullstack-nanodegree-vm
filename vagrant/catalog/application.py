@@ -184,7 +184,8 @@ def newListItem(category_id):
     category = session.query(Category).filter_by(id=category_id).one()
     is_logged_in = 'user_id' in login_session
     if 'user_id' not in login_session:
-        return redirect('login')
+        flash('Please, log in in order to add a new item')
+        return redirect('/category/%s/list' % (category_id))
 
     if login_session['user_id'] != category.user_id:
         flash("You are not authorized to add new books to this category")
@@ -218,7 +219,8 @@ def editListItem(category_id, item_id):
     item = session.query(Item).filter_by(id=item_id).one()
     is_logged_in = 'user_id' in login_session
     if not is_logged_in:
-        return redirect('login')
+        flash('Please, log in in order to edit')
+        return redirect('/category/%s/list/%s' % (category_id, item_id))
 
     if login_session['user_id'] != category.user_id:
         flash("You are not authorized to edit books to this category")
@@ -253,7 +255,8 @@ def deleteListItem(category_id, item_id):
     item = session.query(Item).filter_by(id=item_id).one()
     is_logged_in = 'user_id' in login_session
     if not is_logged_in:
-        return redirect('login')
+        flash('Please, log in in order to delete')
+        return redirect('/category/%s/list/%s' % (category_id, item_id))
 
     if login_session['user_id'] != category.user_id:
         flash("You are not authorized to delete books to this category")
