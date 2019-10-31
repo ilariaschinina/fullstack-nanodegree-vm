@@ -5,7 +5,7 @@ It is a small catalog app that organizes books for learning programming language
 Main features:
 * The basic CRUD functionalities have been implemented and only the authorized users can have access to them
 * The app supports OAuth2 login with Google
-* The project implements JSON endpoints (without security) that serve the same information as displayed in the HTML endpoints:
+* The project implements JSON endpoints that serve the same information as displayed in the HTML endpoints:
     * for arbitrary item in the catalog
     * for all categories
     * for a single category
