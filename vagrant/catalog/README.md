@@ -13,8 +13,8 @@ Main features:
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
-- [Prerequisites: VM](#Prerequisites:-VM)
-- [Prerequisites: the data](#Prerequisites:-the-data)
+- [Prerequisites: VM](#prerequisites:-VM)
+- [Prerequisites: the data](#prerequisites:-the-data)
 - [Running](#running)
 
 
