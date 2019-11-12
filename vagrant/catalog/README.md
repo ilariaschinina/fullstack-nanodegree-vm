@@ -13,8 +13,8 @@ Main features:
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
-- [Prerequisites: VM](#prerequisites:-VM)
-- [Prerequisites: the data](#prerequisites:-the-data)
+- [Prerequisites: VM](#prerequisites-VM)
+- [Prerequisites: the data](#prerequisites-the-data)
 - [Running](#running)
 
 
@@ -31,9 +31,10 @@ Main features:
 
 ### Prerequisites: the data
 
+* Run `pip  install  -r  requirements.txt` in order to install the dependencies
 * Run `python3 db_setup.py`to generate the database
 * Run  `python3 db_data.py` to populate the database
-* Create a Google credential file (name it `client_secret.json`) that allows Google login and place it in catalog folder
+* Create a [Google credential file](https://console.cloud.google.com/projectselector2/home/dashboard) (to allow Google login), name it `client_secret.json` and place in the `catalog` folder
 
 ### Running
 

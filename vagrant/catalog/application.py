@@ -42,7 +42,6 @@ scope = [
 session = db.session
 
 
-# Table structure
 class User(db.Model):
     __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
@@ -60,7 +59,7 @@ class Category(db.Model):
 
     @property
     def serialize(self):
-        # Returns object data in easily serializeable format
+        """Returns object data in easily serializeable format"""
         return {
            'name': self.name,
            'user_id': self.user_id,
@@ -79,7 +78,7 @@ class Item(db.Model):
 
     @property
     def serialize(self):
-        # Returns object data in easily serializeable format
+        """Returns object data in easily serializeable format"""
         category = session.query(Category).filter_by(id=self.category_id).one()
         return {
            'title': self.title,
@@ -128,9 +127,9 @@ def gconnect():
                         'https://www.googleapis.com/oauth2/v1/userinfo'
                         )
 
-    # You want to make sure their email is verified.
-    # The user authenticated with Google, authorized your
-    # app, and now you've verified their email through Google!
+    """You want to make sure their email is verified.
+    The user authenticated with Google, authorized your
+    app, and now you've verified their email through Google!"""
     if userinfo_response.json().get("verified_email"):
         login_session['email'] = userinfo_response.json()["email"]
         login_session['picture'] = userinfo_response.json()["picture"]
@@ -152,8 +151,8 @@ def gconnect():
 
     login_session['user_id'] = user.id
 
-    # Redirect back to the page the user was on if it's known,
-    # otherwise the home page
+    """Redirect back to the page the user was on if it's known,
+    otherwise the home page"""
     return redirect("/")
 
 
